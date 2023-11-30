@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2023 at 11:08 AM
+-- Generation Time: Nov 30, 2023 at 05:17 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 7.4.30
 
@@ -357,13 +357,6 @@ CREATE TABLE `shopcart` (
   `Quantity` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `shopcart`
---
-
-INSERT INTO `shopcart` (`CartID`, `SR_Code`, `ProductID`, `Quantity`) VALUES
-(68, '21-30169', 34, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -704,7 +697,8 @@ INSERT INTO `venues` (`venue_id`, `venue_name`) VALUES
 --
 
 CREATE TABLE `votersinfo` (
-  `studid` varchar(25) NOT NULL,
+  `id` int(100) NOT NULL,
+  `studid` int(11) NOT NULL,
   `yearlevel` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL,
   `hasVotedPresident` tinyint(1) DEFAULT 0,
@@ -717,9 +711,9 @@ CREATE TABLE `votersinfo` (
 -- Dumping data for table `votersinfo`
 --
 
-INSERT INTO `votersinfo` (`studid`, `yearlevel`, `Password`, `hasVotedPresident`, `hasVotedVicePresident`, `hasVotedSecretary`, `hasVotedPeaceOfficer`) VALUES
-('1', '4', 'user', 1, 0, 0, 0),
-('2', '3', 'user', 0, 0, 0, 0);
+INSERT INTO `votersinfo` (`id`, `studid`, `yearlevel`, `Password`, `hasVotedPresident`, `hasVotedVicePresident`, `hasVotedSecretary`, `hasVotedPeaceOfficer`) VALUES
+(1, 1, '4', 'user', 1, 0, 0, 0),
+(2, 2, '3', 'user', 0, 0, 0, 0);
 
 --
 -- Indexes for dumped tables
@@ -949,7 +943,7 @@ ALTER TABLE `venues`
 -- Indexes for table `votersinfo`
 --
 ALTER TABLE `votersinfo`
-  ADD PRIMARY KEY (`studid`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -1116,6 +1110,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `venues`
   MODIFY `venue_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `votersinfo`
+--
+ALTER TABLE `votersinfo`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
